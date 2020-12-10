@@ -1,16 +1,16 @@
 import MovieInfo from './MovieInfo.js';
 import React from 'react';
 
-var MovieList = (props) => (
+var MovieList = ({movies}) => (
 
   <div className="video-list">
-    {props.sample.map((movie) =>
+    {movies.map((movie) =>
       <div>
         <MovieInfo
         movie={movie}
         key={movie.id}
         title={movie.title}
-        handleMovieInfoTitleClick={props.handleMovieInfoTitleClick} />
+        handleMovieInfoTitleClick={movies.handleMovieInfoTitleClick} />
       </div>
   )}
   </div>

@@ -33,7 +33,24 @@ getMovies(query) {
 }
 
 handleSearchInputChange(query) {
-  console.log(query);
+  var queryContains = [];
+  var queryArr = sample.map((movie) => {
+    // console.log(movie);
+        if (movie.title.toLowerCase().includes(query)) {
+          queryContains.push(movie);
+        }
+      }
+    )
+    if (queryContains.length === 0){
+      queryContains.push({
+        title: 'No Titles With That Name',
+        key: 0
+      });
+    }
+    this.setState({
+      movies: queryContains
+    })
+    console.log(this.state.movies);
 }
 
 handleMovieInfoTitleClick(){
@@ -50,7 +67,7 @@ handleMovieInfoTitleClick(){
       </div>
 
       <div className="movie-list">
-        <MovieList sample={sample}/>
+        <MovieList movies={this.state.movies} handleMovieInfoTitleClick={this.handleMovieInfoTitleClick}/>
       </div>
 
     </div>
