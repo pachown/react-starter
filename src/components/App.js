@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search.js';
 import MovieList from './MovieList.js';
+import MovieAdd from './MovieAdd.js';
 
 
 var sample = [
@@ -16,13 +17,16 @@ constructor(props) {
   super(props);
 
   this.state = {
-    movies: []
+    movies: [],
+    shownMovies: [],
+    addMovieName : ''
   }
 }
 
 componentDidMount() {
   this.setState({
-    movies: sample
+    movies: sample,
+    shownMovies: sample
   })
 }
 
@@ -34,8 +38,8 @@ getMovies(query) {
 
 handleSearchInputChange(query) {
   var queryContains = [];
-  var queryArr = sample.map((movie) => {
-    // console.log(movie);
+
+  var queryArr = this.state.movies.map((movie) => {
         if (movie.title.toLowerCase().includes(query)) {
           queryContains.push(movie);
         }
@@ -48,13 +52,26 @@ handleSearchInputChange(query) {
       });
     }
     this.setState({
-      movies: queryContains
+      shownMovies: queryContains
     })
     console.log(this.state.movies);
 }
 
-handleMovieInfoTitleClick(){
-  console.log('titleClicked');
+handleMovieAddButtonClick(){
+  var uniqueID = 0
+  var movie = {title: this.state.addMovieName, id: uniqueID
+  }
+  this.setState({
+    movies : [...this.state.movies, movie],
+    shownMovies:[...this.state.shownMovies, movie]} , function(){console.log(this.state);
+    }
+  )
+}
+
+handleMovieAddInputChange(query) {
+  this.setState({
+    addMovieName: query
+  })
 }
 
 
@@ -62,12 +79,17 @@ handleMovieInfoTitleClick(){
     return(
     <div className="movie-container">
       Movie Titles and more!
+      <div className="movie-add">
+        <MovieAdd
+        handleMovieAddInputChange={this.handleMovieAddInputChange.bind(this)}
+        handleMovieAddButtonClick={this.handleMovieAddButtonClick.bind(this)} />
+      </div>
       <div className="search">
         <Search handleSearchInputChange={this.handleSearchInputChange.bind(this)} />
       </div>
 
       <div className="movie-list">
-        <MovieList movies={this.state.movies} handleMovieInfoTitleClick={this.handleMovieInfoTitleClick}/>
+        <MovieList movies={this.state.shownMovies} handleMovieInfoTitleClick={this.handleMovieInfoTitleClick}/>
       </div>
 
     </div>

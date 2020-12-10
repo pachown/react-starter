@@ -8,8 +8,7 @@ var Search = ({handleSearchInputChange})  => (
         type="text"
         onChange={(e) => {handleSearchInputChange(e.target.value)}}
         />
-        <button className="btn" />
       </div>
 )
 
-export default Search
+export default Search;
