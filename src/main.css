@@ -1,0 +1,16 @@
+body {
+  size: 25px;
+}
+
+.movie-container {
+  display: flex;
+  display: flexbox;
+  justify-content: center;
+  text-align: center;
+}
+
+.movie {
+  color: red;
+  size: 25px;
+  border-radius: 5px;
+}

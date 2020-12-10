@@ -1,0 +1,28 @@
+body {
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  background-image: url('./background/Movie Background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.movie-container {
+  font-weight: 900;
+  font-size: 1.2em;
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+.movie {
+  color: rgb(25, 122, 21);
+  border-radius: 5px;
+  padding: 10px;
+  border: 2px solid rgb(54, 78, 8);
+  background-color : white;
+}
+
+.movie:hover {
+  color: palevioletred;
+}
