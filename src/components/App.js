@@ -33,7 +33,7 @@ componentDidMount() {
     movies: [],
     shownMovies: []
   })
-  console.log(Ajax.ReadAll);
+  Ajax.readAll();
 }
 
 handleSearchInputChange(query) {
