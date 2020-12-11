@@ -1,17 +1,14 @@
 import MovieInfo from './MovieInfo.js';
 import React from 'react';
 
-var MovieList = ({movies}) => (
+var MovieList = ({movies, handleWatchedMovieClick}) => (
 
-  <div className="video-list">
-    {movies.map((movie) =>
-      <div>
+  <div className="movie-list">
+    {movies.map((movie, i) =>
         <MovieInfo
+        key={i}
         movie={movie}
-        key={movie.id}
-        title={movie.title}
-        handleMovieInfoTitleClick={movies.handleMovieInfoTitleClick} />
-      </div>
+        handleWatchedMovieClick={handleWatchedMovieClick} />
   )}
   </div>
 );

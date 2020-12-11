@@ -7,22 +7,57 @@ body {
   background-size: cover;
 }
 
+h1 {
+  background-color: rgba(5, 18, 32, 0.3);
+  border-radius: 35px;
+  font-size: 3em;
+}
+
 .movie-container {
   font-weight: 900;
   font-size: 1.2em;
   display: block;
   justify-content: center;
   text-align: center;
+  overflow: auto;
 }
 
-.movie {
-  color: rgb(25, 122, 21);
+.movieInfo {
+  color: rgb(210, 235, 209);
   border-radius: 5px;
   padding: 10px;
-  border: 2px solid rgb(54, 78, 8);
-  background-color : white;
+  border: 2px solid white;
+  background-color : rgba(5, 18, 32, 0.3);
 }
 
-.movie:hover {
-  color: palevioletred;
+.movieInfo:hover {
+  color: rgb(235, 193, 207);
+}
+
+.btn {
+  background-color: white;
+  border: 2px solid white;
+}
+
+.btn:hover {
+  color:rgb(32, 5, 5);
+  background-color: rgb(208, 233, 95);
+  border: 2px solid black;
+}
+
+.watchedBtn {
+  height: 25px;
+  width: 100px;
+}
+
+.movie-list-options {
+  display: inline-flex
+}
+
+.watched {
+  background-color: green;
+}
+
+.notWatched {
+  background-color: rgb(195, 247, 100);
 }
