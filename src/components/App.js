@@ -3,6 +3,8 @@ import Search from './Search.js';
 import MovieList from './MovieList.js';
 import MovieAdd from './MovieAdd.js';
 import MovieChoice from './MovieChoice.js';
+import Ajax from '../ajax.js'
+
 
 
 // var sample = [
@@ -31,6 +33,7 @@ componentDidMount() {
     movies: [],
     shownMovies: []
   })
+  console.log(Ajax.ReadAll);
 }
 
 handleSearchInputChange(query) {
